@@ -7,11 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.lifecycle.Observer; // Import this class explicitly
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.jarredapps.makeitdown.databinding.MainBinding;
 
@@ -52,12 +47,12 @@ public class MainActivity extends AppCompatActivity {
 		binding.viewpager1.setAdapter(fragAdapt);
 		binding.tablayout1.setupWithViewPager(binding.viewpager1);
 		binding.tablayout1.setInlineLabel(true);
-		binding.tablayout1.setTabTextColors(SketchwareUtil.getMaterialColor(MainActivity.this, R.attr.colorSecondaryContainer), SketchwareUtil.getMaterialColor(MainActivity.this, R.attr.colorOnPrimary));
+		binding.tablayout1.setTabTextColors(ApplicationUtil.getMaterialColor(MainActivity.this, R.attr.colorSecondaryContainer), ApplicationUtil.getMaterialColor(MainActivity.this, R.attr.colorOnPrimary));
 		binding.tablayout1.setTabRippleColor(new android.content.res.ColorStateList(new int[][]{
 				new int[]{android.R.attr.state_pressed}},
 				new int[]{getResources().getColor(R.color.colorControlHighlight)})
 		);
-		binding.tablayout1.setSelectedTabIndicatorColor(SketchwareUtil.getMaterialColor(MainActivity.this, R.attr.colorPrimaryContainer));
+		binding.tablayout1.setSelectedTabIndicatorColor(ApplicationUtil.getMaterialColor(MainActivity.this, R.attr.colorPrimaryContainer));
 		binding.tablayout1.setSelectedTabIndicatorHeight(3);
 	}
 	
