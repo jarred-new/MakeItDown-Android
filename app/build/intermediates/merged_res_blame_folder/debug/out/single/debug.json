@@ -36,6 +36,10 @@
         "source": "C:\\Users\\JarredIzKool\\.gradle\\daemon\\7.5.1\\com.jarredapps.makeitdown.app-main-36:\\mipmap-hdpi\\ic_launcher_background.png"
     },
     {
+        "merged": "com.jarredapps.makeitdown.app-merged_res-34:/layout_input_view_fragment.xml.flat",
+        "source": "com.jarredapps.makeitdown.app-main-36:/layout/input_view_fragment.xml"
+    },
+    {
         "merged": "C:\\Users\\JarredIzKool\\.gradle\\daemon\\7.5.1\\com.jarredapps.makeitdown.app-merged_res-34:\\layout_main.xml.flat",
         "source": "C:\\Users\\JarredIzKool\\.gradle\\daemon\\7.5.1\\com.jarredapps.makeitdown.app-main-36:\\layout\\main.xml"
     },
@@ -50,10 +54,6 @@
     {
         "merged": "C:\\Users\\JarredIzKool\\.gradle\\daemon\\7.5.1\\com.jarredapps.makeitdown.app-merged_res-34:\\mipmap-xxhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\JarredIzKool\\.gradle\\daemon\\7.5.1\\com.jarredapps.makeitdown.app-main-36:\\mipmap-xxhdpi\\ic_launcher.png"
-    },
-    {
-        "merged": "com.jarredapps.makeitdown.app-merged_res-34:/layout_output_view_fragment.xml.flat",
-        "source": "com.jarredapps.makeitdown.app-main-36:/layout/output_view_fragment.xml"
     },
     {
         "merged": "C:\\Users\\JarredIzKool\\.gradle\\daemon\\7.5.1\\com.jarredapps.makeitdown.app-merged_res-34:\\mipmap-mdpi_ic_launcher_monochrome.png.flat",
