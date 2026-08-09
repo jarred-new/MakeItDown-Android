@@ -1,14 +1,18 @@
 [
     {
-        "merged": "com.jarredapps.makeitdown.app-mergeDebugResources-33:/layout/main.xml",
-        "source": "com.jarredapps.makeitdown.app-main-36:/layout/main.xml"
+        "merged": "C:\\Users\\JarredIzKool\\.gradle\\daemon\\7.5.1\\com.jarredapps.makeitdown.app-mergeDebugResources-33:\\layout\\input_view_fragment.xml",
+        "source": "C:\\Users\\JarredIzKool\\.gradle\\daemon\\7.5.1\\com.jarredapps.makeitdown.app-main-36:\\layout\\input_view_fragment.xml"
     },
     {
         "merged": "com.jarredapps.makeitdown.app-mergeDebugResources-33:/layout/output_view_fragment.xml",
         "source": "com.jarredapps.makeitdown.app-main-36:/layout/output_view_fragment.xml"
     },
     {
-        "merged": "com.jarredapps.makeitdown.app-mergeDebugResources-33:/layout/input_view_fragment.xml",
-        "source": "com.jarredapps.makeitdown.app-main-36:/layout/input_view_fragment.xml"
+        "merged": "C:\\Users\\JarredIzKool\\.gradle\\daemon\\7.5.1\\com.jarredapps.makeitdown.app-mergeDebugResources-33:\\layout\\main.xml",
+        "source": "C:\\Users\\JarredIzKool\\.gradle\\daemon\\7.5.1\\com.jarredapps.makeitdown.app-main-36:\\layout\\main.xml"
+    },
+    {
+        "merged": "C:\\Users\\JarredIzKool\\.gradle\\daemon\\7.5.1\\com.jarredapps.makeitdown.app-mergeDebugResources-33:\\layout\\output_view_fragment.xml",
+        "source": "C:\\Users\\JarredIzKool\\.gradle\\daemon\\7.5.1\\com.jarredapps.makeitdown.app-main-36:\\layout\\output_view_fragment.xml"
     }
 ]

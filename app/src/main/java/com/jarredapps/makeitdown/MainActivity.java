@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 						Manifest.permission.READ_MEDIA_IMAGES,
 						Manifest.permission.READ_MEDIA_VIDEO
 				}, STORAGE_CODE);
-				
+
 				initialize(_savedInstanceState);
 				initializeLogic();
 			}
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	private void initialize(Bundle _savedInstanceState) {
-		binding.Toolbar.setTitleTextColor(ApplicationUtil.getMaterialColor(MainActivity.this, R.attr.colorSecondary));
+		binding.Toolbar.setTitleTextColor(R.color.colorPrimaryDark);
 		setSupportActionBar(binding.Toolbar);
 
 //		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
