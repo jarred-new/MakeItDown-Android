@@ -1,21 +1,27 @@
 package com.jarredapps.makeitdown;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
+import android.Manifest;
 
 import com.jarredapps.makeitdown.databinding.MainBinding;
 
 
 public class MainActivity extends AppCompatActivity {
-	
 	private MainBinding binding;
 	public String outputStr = "";
-	
+
+	private int STORAGE_CODE = 100;
 	private FragAdaptFragmentAdapter fragAdapt;
 	
 	@Override
@@ -23,12 +29,34 @@ public class MainActivity extends AppCompatActivity {
 		super.onCreate(_savedInstanceState);
 		binding = MainBinding.inflate(getLayoutInflater());
 		setContentView(binding.getRoot());
-		initialize(_savedInstanceState);
-		initializeLogic();
+
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+			if (ContextCompat.checkSelfPermission(this, Manifest.permission.MANAGE_EXTERNAL_STORAGE)
+					== PackageManager.PERMISSION_DENIED) {
+				ActivityCompat.requestPermissions(this, new String[]{
+						Manifest.permission.MANAGE_EXTERNAL_STORAGE,
+						Manifest.permission.READ_MEDIA_AUDIO,
+						Manifest.permission.READ_MEDIA_IMAGES,
+						Manifest.permission.READ_MEDIA_VIDEO
+				}, STORAGE_CODE);
+				
+				initialize(_savedInstanceState);
+				initializeLogic();
+			}
+			else {
+				initialize(_savedInstanceState);
+				initializeLogic();
+			}
+		}
 	}
-	
+
+	@Override
+	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+	}
+
 	private void initialize(Bundle _savedInstanceState) {
-		binding.Toolbar.setTitleTextColor(getResources().getColor(R.color.colorPrimaryDark));
+		binding.Toolbar.setTitleTextColor(ApplicationUtil.getMaterialColor(MainActivity.this, R.attr.colorSecondary));
 		setSupportActionBar(binding.Toolbar);
 
 //		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
