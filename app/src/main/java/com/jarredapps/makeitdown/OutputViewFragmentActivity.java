@@ -1,7 +1,10 @@
 package com.jarredapps.makeitdown;
 
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -20,6 +23,8 @@ public class OutputViewFragmentActivity extends Fragment {
 	
 	private OutputViewFragmentBinding binding;
 	private SharedViewModel viewModel;
+	private ScaleGestureDetector scaleGestureDetector;
+	private float textSize = 18f;
 	
 	@NonNull
 	@Override
@@ -31,6 +36,22 @@ public class OutputViewFragmentActivity extends Fragment {
 	}
 	
 	private void initialize(Bundle _savedInstanceState, View _view) {
+		scaleGestureDetector = new ScaleGestureDetector(requireContext(), new ScaleListener());
+
+		binding.textview1.setOnTouchListener(new View.OnTouchListener() {
+			//@SuppressLint("ClickableViewAccessibility")
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				// Pass touch data to detector
+				scaleGestureDetector.onTouchEvent(event);
+
+				// If two fingers are touching, tell ViewPager not to steal the event
+				if (event.getPointerCount() > 1) {
+					v.getParent().requestDisallowInterceptTouchEvent(true);
+				}
+				return true;
+			}
+		});
 	}
 	
 	private void initializeLogic() {
@@ -44,5 +65,17 @@ public class OutputViewFragmentActivity extends Fragment {
 			}
 		});            
 	}
-	
+
+	private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {
+		@Override
+		public boolean onScale(ScaleGestureDetector detector) {
+			textSize *= detector.getScaleFactor();
+
+			// Constrain text sizing bounds
+			textSize = Math.max(12.0f, Math.min(textSize, 100.0f));
+
+			binding.textview1.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
+			return true;
+		}
+	}
 }

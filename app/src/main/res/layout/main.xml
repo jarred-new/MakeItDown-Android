@@ -26,7 +26,7 @@
 			android:id="@+id/tablayout1"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:background="?colorPrimary"
+			android:background="?attr/colorPrimary"
 			app:tabGravity="fill"
 			app:tabMode="fixed"
 			app:tabIndicatorHeight="3dp"

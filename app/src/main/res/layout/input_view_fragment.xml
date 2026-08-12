@@ -36,8 +36,8 @@
 				android:layout_height="match_parent"
 				android:layout_marginLeft="2dp"
 				android:layout_marginRight="2dp"
-				android:alpha="0.7"
-				android:background="#000000" />
+				android:alpha="0.9"
+				android:background="#B6B6B6" />
 
 			<com.google.android.material.button.MaterialButton
 				android:id="@+id/materialbutton2"
@@ -52,8 +52,31 @@
 				android:textSize="12sp"
 				android:textColor="#FFFFFF"
 				app:cornerRadius="8dp" />
+
 			<com.google.android.material.button.MaterialButton
 				android:id="@+id/materialbutton3"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="2dp"
+				android:layout_marginRight="2dp"
+				android:gravity="center_horizontal|center_vertical"
+				android:padding="8dp"
+				android:text="Save Md"
+				android:textColor="#FFFFFF"
+				android:textSize="12sp"
+				app:backgroundTint="?colorPrimaryContainer"
+				app:cornerRadius="8dp" />
+
+			<View
+				android:layout_width="3dp"
+				android:layout_height="match_parent"
+				android:layout_marginLeft="2dp"
+				android:layout_marginRight="2dp"
+				android:alpha="0.9"
+				android:background="#B6B6B6" />
+
+			<com.google.android.material.button.MaterialButton
+				android:id="@+id/materialbutton4"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_marginLeft="2dp"
@@ -61,10 +84,25 @@
 				android:padding="8dp"
 				app:backgroundTint="?colorPrimaryContainer"
 				android:gravity="center_horizontal|center_vertical"
-				android:text="Save Md"
+				android:text="Zoom +"
 				android:textSize="12sp"
 				android:textColor="#FFFFFF"
 				app:cornerRadius="8dp" />
+
+			<com.google.android.material.button.MaterialButton
+				android:id="@+id/materialbutton5"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="2dp"
+				android:layout_marginRight="2dp"
+				android:padding="8dp"
+				app:backgroundTint="?colorPrimaryContainer"
+				android:gravity="center_horizontal|center_vertical"
+				android:text="Zoom -"
+				android:textSize="12sp"
+				android:textColor="#FFFFFF"
+				app:cornerRadius="8dp" />
+
 		</LinearLayout>
 	</HorizontalScrollView>
 	<ScrollView

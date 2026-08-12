@@ -44,12 +44,19 @@ public final class InputViewFragmentBinding implements ViewBinding {
   public final MaterialButton materialbutton3;
 
   @NonNull
+  public final MaterialButton materialbutton4;
+
+  @NonNull
+  public final MaterialButton materialbutton5;
+
+  @NonNull
   public final ScrollView vscroll1;
 
   private InputViewFragmentBinding(@NonNull LinearLayout rootView, @NonNull EditText edittext1,
       @NonNull HorizontalScrollView hscroll2, @NonNull LinearLayout linear1,
       @NonNull LinearLayout linear2, @NonNull MaterialButton materialbutton1,
       @NonNull MaterialButton materialbutton2, @NonNull MaterialButton materialbutton3,
+      @NonNull MaterialButton materialbutton4, @NonNull MaterialButton materialbutton5,
       @NonNull ScrollView vscroll1) {
     this.rootView = rootView;
     this.edittext1 = edittext1;
@@ -59,6 +66,8 @@ public final class InputViewFragmentBinding implements ViewBinding {
     this.materialbutton1 = materialbutton1;
     this.materialbutton2 = materialbutton2;
     this.materialbutton3 = materialbutton3;
+    this.materialbutton4 = materialbutton4;
+    this.materialbutton5 = materialbutton5;
     this.vscroll1 = vscroll1;
   }
 
@@ -131,6 +140,18 @@ public final class InputViewFragmentBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.materialbutton4;
+      MaterialButton materialbutton4 = ViewBindings.findChildViewById(rootView, id);
+      if (materialbutton4 == null) {
+        break missingId;
+      }
+
+      id = R.id.materialbutton5;
+      MaterialButton materialbutton5 = ViewBindings.findChildViewById(rootView, id);
+      if (materialbutton5 == null) {
+        break missingId;
+      }
+
       id = R.id.vscroll1;
       ScrollView vscroll1 = ViewBindings.findChildViewById(rootView, id);
       if (vscroll1 == null) {
@@ -138,7 +159,8 @@ public final class InputViewFragmentBinding implements ViewBinding {
       }
 
       return new InputViewFragmentBinding((LinearLayout) rootView, edittext1, hscroll2, linear1,
-          linear2, materialbutton1, materialbutton2, materialbutton3, vscroll1);
+          linear2, materialbutton1, materialbutton2, materialbutton3, materialbutton4,
+          materialbutton5, vscroll1);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

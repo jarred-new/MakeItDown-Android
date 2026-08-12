@@ -29,6 +29,10 @@ public class InputViewFragmentActivity extends Fragment {
 //	private Intent openFile = new Intent(Intent.ACTION_OPEN_DOCUMENT);
 //	private Intent saveFile = new Intent(Intent.ACTION_CREATE_DOCUMENT);
 
+	//private ScaleGestureDetector scaleGestureDetector;
+	//private float currentTextSizePx;
+	private float textSize = 18f;
+
 	private final ActivityResultLauncher<String[]> openDocumentLauncher = registerForActivityResult(
 			new ActivityResultContracts.OpenDocument(),
 			uri -> {
@@ -91,6 +95,8 @@ public class InputViewFragmentActivity extends Fragment {
 	}
 	
 	private void initialize(Bundle _savedInstanceState, View _view) {
+		// Initialize EditText with default text size
+		binding.edittext1.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
 		
 		binding.materialbutton1.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -153,10 +159,83 @@ public class InputViewFragmentActivity extends Fragment {
 						.show();
 			}
 		});
+
+		//scaleGestureDetector = new ScaleGestureDetector(requireContext(), new ScaleListener());
+
+//		binding.edittext1.setOnTouchListener(new View.OnTouchListener() {
+//			//@SuppressLint("ClickableViewAccessibility")
+//			@Override
+//			public boolean onTouch(View v, MotionEvent event) {
+//				// Pass touch data to detector
+//				scaleGestureDetector.onTouchEvent(event);
+//
+//				// If two fingers are touching, tell ViewPager not to steal the event
+//				if (event.getPointerCount() > 1) {
+//					v.getParent().requestDisallowInterceptTouchEvent(true);
+//				}
+//				return false;
+//			}
+//		});
+
+		binding.materialbutton4.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				zoomInText();
+			}
+		});
+
+		binding.materialbutton5.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				zoomOutText();
+			}
+		});
 	}
 	
 	private void initializeLogic() {
 		viewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
 	}
-	
+
+	private void zoomInText() {
+		// When it reaches 100sp, it will not increase anymore
+		if (textSize < 100f) {
+			textSize += 2f;
+			binding.edittext1.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
+		} else {
+			Snackbar snackbar = Snackbar.make(binding.getRoot(), "Maximum text size reached", Snackbar.LENGTH_SHORT);
+			snackbar.show();
+		}
+		
+		// Update button states
+		binding.materialbutton4.setEnabled(textSize < 100f);
+		binding.materialbutton5.setEnabled(textSize > 12f);
+	}
+
+	private void zoomOutText() {
+		// When it reaches 12sp, it will not decrease anymore
+		if (textSize > 12f) {
+			textSize -= 2f;
+			binding.edittext1.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
+		} else {
+			Snackbar snackbar = Snackbar.make(binding.getRoot(), "Minimum text size reached", Snackbar.LENGTH_SHORT);
+			snackbar.show();
+		}
+		
+		// Update button states
+		binding.materialbutton4.setEnabled(textSize < 100f);
+		binding.materialbutton5.setEnabled(textSize > 12f);
+	}
+
+//	private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {
+//		@Override
+//		public boolean onScale(ScaleGestureDetector detector) {
+//			textSize = detector.getScaleFactor();
+//
+//			// Constrain text sizing bounds
+//			textSize = Math.max(12.0f, Math.min(textSize, 100.0f));
+//
+//			binding.edittext1.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
+//			return true;
+//		}
+//	}
 }
